@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# File Mime Type checking
+python-magic-bin==0.4.14  # find file mime type

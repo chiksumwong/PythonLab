@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# File Mime Type checking
+python-magic==0.4.18  # find file mime type

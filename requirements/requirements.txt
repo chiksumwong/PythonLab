@@ -1,0 +1,11 @@
+# Encryption
+pycryptodome==3.10.1
+
+# File Virus Scan
+clamd==1.0.2
+
+# File Encryption (zip with password - AES)
+pyzipper==0.3.5
+
+# 2FA - Time Based OPT (TOTP)
+pyotp==2.6.0
