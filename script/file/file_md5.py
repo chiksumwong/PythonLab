@@ -78,13 +78,8 @@ def verify_project_md5(root_path, md5_json):
         data_arr = data['md5_list']
         for item in data_arr:
             for i in item:
-                # get file path
-                # print(f"key: {i}, value: {}")
-                print(i)
-                print(item[i])
                 file_path = os.path.join(root_path, i)
                 result = md5_check(file_path, item[i])
-                print(result)
                 if not result:
                     log_info(f'Md5 verify fail: {file_path}')
 
