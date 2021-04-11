@@ -1,9 +1,9 @@
-from log.log import save_exception_log
-from server.settings import ZIP_PASSWORD
+from config.settings import ZIP_PASSWORD
 from file_scaner import file_scan
 from file_validation import file_name_length_checking, file_size_checking, file_type_checking
 from file_zip import zip_encrypt, file_remove
 from file_md5 import md5_generate
+from script.loger import log_exc
 
 
 def file_upload(zip_file_path, file_path, file):
@@ -15,7 +15,7 @@ def file_upload(zip_file_path, file_path, file):
 
     # File Size Checking
     if not file_name_length_checking(file_path):
-        save_exception_log('File Checking - Name Length Error, ' + file_path)
+        log_exc('File Checking - Name Length Error, ' + file_path)
         # Remove the file
         file_remove(file_path)
         file_remove(zip_file_path)
@@ -23,7 +23,7 @@ def file_upload(zip_file_path, file_path, file):
 
     # File Size Checking
     if not file_size_checking(file_path):
-        save_exception_log('File Checking - File Size Error, ' + file_path)
+        log_exc('File Checking - File Size Error, ' + file_path)
         # Remove the file
         file_remove(file_path)
         file_remove(zip_file_path)
@@ -31,7 +31,7 @@ def file_upload(zip_file_path, file_path, file):
 
     # File Type Checking
     if not file_type_checking(file_path):
-        save_exception_log('File Checking - File Type Error, ' + file_path)
+        log_exc('File Checking - File Type Error, ' + file_path)
         # Remove the file
         file_remove(file_path)
         file_remove(zip_file_path)
@@ -39,7 +39,7 @@ def file_upload(zip_file_path, file_path, file):
 
     # File Virus Scan
     if not file_scan(file_path):
-        save_exception_log('File Checking - File Scan Error, ' + file_path)
+        log_exc('File Checking - File Scan Error, ' + file_path)
         # Remove the file
         file_remove(file_path)
         file_remove(zip_file_path)
@@ -50,7 +50,7 @@ def file_upload(zip_file_path, file_path, file):
 
     # Zip File Encryption (Random the file name)
     if not zip_encrypt(zip_file_path, file_path, ZIP_PASSWORD):
-        save_exception_log('File Checking - Zip Encrypt Error, ' + file_path)
+        log_exc('File Checking - Zip Encrypt Error, ' + file_path)
         # Remove the file
         file_remove(file_path)
         file_remove(zip_file_path)

@@ -7,7 +7,7 @@ from Crypto.Hash import SHA256, SHA512, SHA384, MD5
 from Crypto.PublicKey import RSA
 from Crypto.Signature import pkcs1_15
 
-from server.settings import BASE_DIR
+from config.settings import BASE_DIR
 
 SETTING_ROOT = os.path.join(BASE_DIR, 'server')
 
